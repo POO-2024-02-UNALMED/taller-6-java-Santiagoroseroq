@@ -3,13 +3,14 @@ package vehiculos;
 public class Camion extends Vehiculo {
     private int ejes;
 
-    // Constructor
-    public Camion(String placa, double precio, double peso, String nombre, Fabricante fabricante, int ejes) {
-        super(placa, 2, 80, nombre, precio, peso, "4X2", fabricante);
+    // Constructor ajustado para llamar al constructor de Vehiculo
+    public Camion(String placa, String nombre, double precio, double peso, Fabricante fabricante, int ejes) {
+        // Llamar al constructor de Vehiculo con los parámetros adecuados
+        super(placa, 2, 100, nombre, precio, peso, "RWD", fabricante);  // "RWD" es un valor de tracción predeterminado
         this.ejes = ejes;
-        incrementarContador("Camion");  // Incrementar contador de camiones
     }
 
+    // Getter y Setter para 'ejes'
     public int getEjes() {
         return ejes;
     }
