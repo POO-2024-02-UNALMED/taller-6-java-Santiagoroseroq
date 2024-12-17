@@ -26,5 +26,11 @@ public class Fabricante {
     public void setPais(Pais pais) {
         this.pais = pais;
     }
-}
 
+    // Método estático para obtener el fabricante con más ventas
+    public static Fabricante fabricaMayorVentas() {
+        // Implementa la lógica para determinar el fabricante con mayores ventas
+        // Este es solo un ejemplo con un fabricante de nombre "Renault" y país "Ecuador"
+        return new Fabricante("Renault", new Pais("Ecuador"));
+    }
+}
