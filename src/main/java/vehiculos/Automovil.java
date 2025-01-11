@@ -1,20 +1,25 @@
 package vehiculos;
 
 public class Automovil extends Vehiculo {
-    private int numAsientos;
+    private int puestos;
 
-    // Constructor con los parámetros adecuados
-    public Automovil(String placa, String nombre, int precio, int peso, Fabricante fabricante, int numAsientos) {
-        super(placa, 4, 180, nombre, precio, peso, "RWD", fabricante);  // Llamada al constructor de la clase padre Vehiculo
-        this.numAsientos = numAsientos;
+    public Automovil(String placa, String nombre, int precio, int peso, Fabricante fabricante, int puestos) {
+        super(placa, 4, 100, nombre, precio, peso, "Tracción delantera", fabricante);
+        this.puestos = puestos;
+        Vehiculo.incrementarCantidad("Automovil");
     }
 
-    // Getter y setter para 'numAsientos'
-    public int getNumAsientos() {
-        return numAsientos;
+    public Automovil(String placa, int puertas, String nombre, double precio, double peso, Fabricante fabricante, int puestos) {
+        super(placa, puertas, 100, nombre, precio, peso, "Tracción delantera", fabricante);
+        this.puestos = puestos;
+        Vehiculo.incrementarCantidad("Automovil");
     }
 
-    public void setNumAsientos(int numAsientos) {
-        this.numAsientos = numAsientos;
+    public int getPuestos() {
+        return puestos;
+    }
+
+    public void setPuestos(int puestos) {
+        this.puestos = puestos;
     }
 }
