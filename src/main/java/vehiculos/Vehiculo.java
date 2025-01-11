@@ -51,11 +51,11 @@ public abstract class Vehiculo {
         this.velocidadMaxima = velocidadMaxima;
     }
 
-    public String getNombre() { // Agregado método getNombre
+    public String getNombre() { 
         return nombre;
     }
 
-    public void setNombre(String nombre) { // Agregado método setNombre
+    public void setNombre(String nombre) { 
         this.nombre = nombre;
     }
 
