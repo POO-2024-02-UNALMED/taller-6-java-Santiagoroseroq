@@ -1,20 +1,58 @@
 package vehiculos;
 
-public class Pais {
+import java.util.ArrayList;
+import java.util.List;
 
+public class Pais {
     private String nombre;
+    private static List<Pais> paises = new ArrayList<>();
 
     public Pais(String nombre) {
         this.nombre = nombre;
+        paises.add(this);
     }
 
     public String getNombre() {
         return nombre;
     }
 
-    // Método estático para poder ser llamado desde los tests sin necesidad de instanciar un objeto
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
+    }
+
     public static Pais paisMasVendedor() {
-        // Implementa la lógica que determine el país con más ventas
-        return new Pais("Ecuador"); // Ejemplo, puedes cambiarlo por la lógica real
+        Pais paisMasVendedor = null;
+        int maxVentas = 0;
+
+        for (Pais pais : paises) {
+            int ventas = 0;
+            for (Fabricante fabricante : Fabricante.getFabricantes()) {
+                if (fabricante.getPais().equals(pais)) {
+                    for (Vehiculo vehiculo : Fabricante.getVehiculos()) {
+                        if (vehiculo.getFabricante().equals(fabricante)) {
+                            ventas++;
+                        }
+                    }
+                }
+            }
+
+            if (ventas > maxVentas) {
+                maxVentas = ventas;
+                paisMasVendedor = pais;
+            }
+        }
+
+        return paisMasVendedor;
+    }
+
+    public static List<Pais> getPaises() {
+        return paises;
+    }
+
+    @Override
+    public String toString() {
+        return "Pais{" +
+                "nombre='" + nombre + '\'' +
+                '}';
     }
 }
