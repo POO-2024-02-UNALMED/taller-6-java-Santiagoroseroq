@@ -12,7 +12,7 @@ public class Fabricante {
     public Fabricante(String nombre, Pais pais) {
         this.nombre = nombre;
         this.pais = pais;
-        fabricantes.add(this); // Agregar el fabricante a la lista
+        fabricantes.add(this); 
     }
 
     public String getNombre() {
@@ -51,8 +51,7 @@ public class Fabricante {
                 maxVentas = ventas;
                 fabricanteMayorVentas = fabricante;
             } else if (ventas == maxVentas) {
-                // Si hay más de un fabricante con la misma cantidad de ventas,
-                // devolver el primero que se encuentre
+            
                 return fabricante;
             }
         }
